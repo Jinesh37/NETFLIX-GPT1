@@ -1,14 +1,22 @@
 import Header from "../components/Header";
+import{PROFILELOGO} from "../utils/constant"
+import { addUser } from "../utils/userSlice.jsx";
 import { useState, useRef } from "react";
 import { checkValidData } from "../utils/validate.jsx";
-import {auth} from "../utils/firebase.jsx";
-import {  createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase.jsx";
+import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
   const email = useRef(null);
   const name = useRef(null);
   const password = useRef(null);
+  const dispatch = useDispatch();
   const handleButtonClick = () => {
     // validate the form data
     const message = isSignInForm
@@ -19,32 +27,55 @@ const Login = () => {
           name.current.value
         );
     setErrorMsg(message);
+    if (message) return;
     if (!isSignInForm) {
       //  Sign Up logic
-      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
-        .then((userCredential) => {
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then(
+          (userCredential) => {
           const user = userCredential.user;
-          console.log(user);
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: PROFILELOGO,
+            // photoURL:PROFILELOGO
+          })
+            .then(() => {
+              // here user didn't have updated information so we are using auth because it's have updated information
+              const { uid, email, displayName } = auth;
+              // const { uid, email, displayName,photoURL } = auth;
+              dispatch(addUser({ uid: uid, email: email, displayName: displayName})
+                // addUser({ uid: uid, email: email, displayName: displayName,photoURL:photoURL})
+              );
+            })
+            .catch((error) => {
+              setErrorMsg(error.message);
+            });
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMsg(errorCode+"-"+errorMessage);
-          // ..
+          setErrorMsg(errorCode + "-" + errorMessage);
         });
-    } 
-    else {
-      signInWithEmailAndPassword(auth,email.current.value,password.current.value)
-      .then((userCredential)=>{
-          const user=userCredential.user;
-          console.log(user);
-      })
-      .catch((error)=>{
-        const errorCode=error.code;
-        const errorMessage=error.message;
-        setErrorMsg(error.code+"-"+error.message);
-      })
-      // Sign In logic
+    } else {
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMsg(error.code + "-" + error.message);
+        });
+     
     }
   };
   const toggleSignInForm = () => {
