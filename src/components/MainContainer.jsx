@@ -6,7 +6,6 @@ const MainContainer = () => {
   // console.log(movies);
   if (!movies) return;
   const mainMovie = movies[0];
-  console.log(mainMovie);
   const { original_title, overview, id } = mainMovie;
   return (
     <div className="mt-5 bg-green">

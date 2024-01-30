@@ -6,6 +6,7 @@ import { checkValidData } from "../utils/validate.jsx";
 import { auth } from "../utils/firebase.jsx";
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
+import{BG_URL} from "../utils/constant";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -86,7 +87,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://wpassets.brainstation.io/app/uploads/2017/04/13100509/Netflix-Background.jpg"
+          src={BG_URL}
           alt=""
         />
       </div>
