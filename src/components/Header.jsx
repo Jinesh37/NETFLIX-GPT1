@@ -61,31 +61,34 @@ const Header = () => {
       <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="NETFLIX" />
       {/* if I have user then please this portion og image and sign out button */}
       {user && (
-        <div className="mt-2 flex">
-
-         {gptShowValue && (<select
-            className="p-4 bg-gray-900 text-white m-2 rounded-lg "
-            onChange={handleLanguageChange}
-          >
-            {SUPPORTED_LANGUAGES.map((lang) => (
-              <option key={lang.identifier} value={lang.identifier}>
-                {lang.name}
-              </option>
-            ))}
-          </select>)}
+        <div className="mt-2 flex justify-between ">
+          {gptShowValue && (
+            <select
+              className="p-4 bg-gray-900 text-white m-2 rounded-lg "
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
           <button
-            className="py-2 px-4 bg-purple-800 rounded-lg mx-4  text-white"
+            className=" py-2 md:px-4 bg-purple-800 rounded-lg   mx-2 md:mx-4  my-2 md:my-0 text-white"
             onClick={handleGptSearchClick}
           >
-          {!gptShowValue?"GPT SEARCH":"HOMEPAGE"}
+            {!gptShowValue ? "GPT SEARCH" : "HOMEPAGE"}
           </button>
-          <img class="w-8 h-8" alt="usericon" src={PROFILELOGO} />
-          <button
-            onClick={handleSignOut}
-            className="font-bold text-white  mb-8"
-          >
-            (Sign Out){user?.displayName}
-          </button>
+          <div className="flex items-center">
+            <img class="w-8 h-8" alt="usericon" src={PROFILELOGO} />
+            <button
+              onClick={handleSignOut}
+              className="font-bold text-white md:mb-8"
+            >
+              (Sign Out){user?.displayName}
+            </button>
+          </div>
         </div>
       )}
     </div>

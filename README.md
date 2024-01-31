@@ -18,7 +18,7 @@
 -Feature-1:Sign up user display name and Profile Picture update
 -If the user is not logged in and trying to access browse page then redirect to logged in page or if user is logged in and trying to reach login page then redirect to browse page
 -Unsubscribe to the onAuthStateChanges callback
--Add harcoded URL in constant file
+-Add hardcoded URL in constant file
 -Register TMDB API & create an app & get access token
 -Get Data from TMDB now playing movies list API
 -Custom Hooks for now playing movies
@@ -40,6 +40,12 @@
 -Gpt Search Page
 -Gpt Search Bar
 -Multi-language Feature in our chatGpt Page
+-Set Open AI-Api key
+-GPT Search API Call
+-Fetch GPT  Movie suggestion from TMDB API
+-GptSlice to add the movies data
+-Reused Movie List Component to make Movie Suggestion container
+-Memorization
 
 
 #Features
