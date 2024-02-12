@@ -70,12 +70,13 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          localStorage.setItem('user',user);
         })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMsg(error.code + "-" + error.message);
-        });
+        // .catch((error) => {
+        //   // const errorCode = error.code;
+        //   // const errorMessage = error.message;
+        //   // setErrorMsg(error.code + "-" + error.message);
+        // });
      
     }
   };

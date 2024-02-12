@@ -22,7 +22,7 @@ const useNowPlayingmovies = () => {
     // if nowPlayingMovies didn't have data then we do call 
     if(!nowPlayingMovies)
     getNowPlaying();
-  }, []);
+  }, [nowPlayingMovies]);
 };
 export default useNowPlayingmovies;
 
