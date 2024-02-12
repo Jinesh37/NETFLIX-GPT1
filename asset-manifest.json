@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/NETFLIX-GPT1/static/css/main.e4f141cc.css",
-    "main.js": "/NETFLIX-GPT1/static/js/main.41856e12.js",
+    "main.js": "/NETFLIX-GPT1/static/js/main.10e338ef.js",
     "static/js/787.8e67c6e9.chunk.js": "/NETFLIX-GPT1/static/js/787.8e67c6e9.chunk.js",
     "index.html": "/NETFLIX-GPT1/index.html",
     "main.e4f141cc.css.map": "/NETFLIX-GPT1/static/css/main.e4f141cc.css.map",
-    "main.41856e12.js.map": "/NETFLIX-GPT1/static/js/main.41856e12.js.map",
+    "main.10e338ef.js.map": "/NETFLIX-GPT1/static/js/main.10e338ef.js.map",
     "787.8e67c6e9.chunk.js.map": "/NETFLIX-GPT1/static/js/787.8e67c6e9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e4f141cc.css",
-    "static/js/main.41856e12.js"
+    "static/js/main.10e338ef.js"
   ]
 }
