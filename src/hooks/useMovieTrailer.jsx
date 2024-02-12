@@ -1,9 +1,11 @@
-import {useDispatch} from "react-redux";
-import {options} from '../utils/constant';
-import {useEffect} from "react";
-import {addTrailerVideo} from "../utils/movieSlice"; 
+import { useDispatch } from "react-redux";
+import { options } from '../utils/constant';
+import { useEffect } from "react";
+import { addTrailerVideo } from "../utils/movieSlice"; 
+
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
+
   const getMovieVideos = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/"+movieId+"/videos?language=en-US",
@@ -21,8 +23,12 @@ const useMovieTrailer = (movieId) => {
     dispatch(addTrailerVideo(Trailer));
     // setTrailerId(Trailer.key);
   };
+
   useEffect(() => {
+    // Calling getMovieVideos function when the component mounts
     getMovieVideos();
-  }, []);
+  }, []); // No dependencies needed here because getMovieVideos doesn't depend on any props or state variables
+
 };
+
 export default useMovieTrailer;
