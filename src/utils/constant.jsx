@@ -18,4 +18,4 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" },
 ];
-export const openAI_key="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";
+export const openAI_key="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";

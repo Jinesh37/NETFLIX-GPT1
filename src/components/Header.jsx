@@ -99,3 +99,7 @@ export default Header;
 // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX5-TeuWtZ0i5ynkaypdhEPm4zVI4kykuqdQ&usqp=CAU
 // user?.photoUrl
 // logo after login part
+
+
+
+// https://netflix-gpt15.netlify.app
