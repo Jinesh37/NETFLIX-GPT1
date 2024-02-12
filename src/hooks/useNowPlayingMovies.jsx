@@ -22,7 +22,8 @@ const useNowPlayingmovies = () => {
     // if nowPlayingMovies didn't have data then we do call 
     if(!nowPlayingMovies)
     getNowPlaying();
-  }, [nowPlayingMovies]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 };
 export default useNowPlayingmovies;
 
