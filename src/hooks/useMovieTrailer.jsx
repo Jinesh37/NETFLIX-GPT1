@@ -27,6 +27,7 @@ const useMovieTrailer = (movieId) => {
   useEffect(() => {
     // Calling getMovieVideos function when the component mounts
     getMovieVideos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // No dependencies needed here because getMovieVideos doesn't depend on any props or state variables
 
 };
