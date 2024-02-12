@@ -87,7 +87,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img className="h-screen object-cover"
+        <img className="h-screen object-cover w-screen"
           src={BG_URL}
           alt=""
         />
