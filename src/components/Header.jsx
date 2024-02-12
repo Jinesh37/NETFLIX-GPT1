@@ -84,7 +84,7 @@ const Header = () => {
             <img class="w-8 h-8" alt="usericon" src={PROFILELOGO} />
             <button
               onClick={handleSignOut}
-              className="font-bold text-white md:mb-8"
+              className="font-bold text-white md:mt-8 md:ml-3 "
             >
               (Sign Out){user?.displayName}
             </button>
